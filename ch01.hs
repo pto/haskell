@@ -16,13 +16,13 @@ myProduct (x:xs) = x * myProduct xs
 -- Exercise 4
 reverseSort [] = []
 reverseSort (x:xs) = reverseSort larger ++ [x] ++ reverseSort smaller
-						where
-							larger = [ a | a <- xs, a > x ]
-							smaller = [ a | a <- xs, a <= x ]
+                                                where
+                                                        larger = [ a | a <- xs, a > x ]
+                                                        smaller = [ a | a <- xs, a <= x ]
 
 -- Exercise 5
 setSort [] = []
 setSort (x:xs) = setSort smaller ++ [x] ++ setSort larger
-					where
-						smaller = [ a | a <- xs, a < x ]
-						larger = [ a | a <- xs, a > x ]
+                                        where
+                                                smaller = [ a | a <- xs, a < x ]
+                                                larger = [ a | a <- xs, a > x ]

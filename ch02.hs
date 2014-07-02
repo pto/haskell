@@ -6,9 +6,9 @@ factorial n = product [1..n]
 average xs = sum xs `div` length xs
 
 a = b + c
-	where
-		b = 1
-		c = 2
+        where
+                b = 1
+                c = 2
 
 d = a * 2
 
@@ -22,9 +22,9 @@ c = fortyTwo where { fortyTwo = 42 }
 
 -- Exercise 3
 n = a `div` length xs
-	where
-   		a = 10
-		xs = [1,2,3,4,5]
+        where
+                a = 10
+                xs = [1,2,3,4,5]
 
 -- Exercise 4
 myLast1 xs = head (drop (length xs - 1) xs)
