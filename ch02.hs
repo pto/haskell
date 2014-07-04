@@ -1,24 +1,38 @@
+double :: Num a => a -> a
 double x = x + x
+
+quadruple :: Num a => a -> a
 quadruple x = double (double x)
 
+factorial :: (Num a, Enum a) => a -> a
 factorial n = product [1..n]
 
+average :: [Int] -> Int
 average xs = sum xs `div` length xs
 
-a = b + c
-        where
-                b = 1
-                c = 2
-
+a = b + c 
+    where
+        b = 1
+        c = 2
 d = a * 2
 
-c = fortyTwo where { fortyTwo = 42 }
+c = forty + two where { forty = 40;
+two = 2} 
 
 -- This is a comment
 
 {-
- e = 123
+ e = 123 -- This is also a comment
+ {- This is a nested comment -}
 -}
+
+-- Exercise 1
+-- (2 ^ 3) * 4
+-- (2 * 3) + (4 * 5)
+-- 2 + (3 * (4 ^ 5))
+
+-- Exercise 2
+-- (see above)
 
 -- Exercise 3
 n = a `div` length xs
@@ -39,3 +53,5 @@ myInit1 xs = take (length xs - 1) xs
 
 myInit2 [x] = []
 myInit2 (x:xs) = [x] ++ myInit2 xs
+
+myInit3 xs = reverse (tail (reverse xs))
