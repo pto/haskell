@@ -2,18 +2,14 @@
 
 import Data.List (intercalate)
 
-fizzBuzzLine :: Int -> String
-fizzBuzzLine x | x `mod` 15 == 0 = "FizzBuzz"
-               | x `mod` 3 == 0  = "Fizz"
-               | x `mod` 5 == 0  = "Buzz"
-               | otherwise       = show x
-
-fizzBuzzList :: Int -> [String]
-fizzBuzzList n = map fizzBuzzLine [1..n]
-
 fizzBuzz :: IO ()
-fizzBuzz = putStrLn (intercalate "\n" (fizzBuzzList 100))
-
+fizzBuzz = let fizzBuzzLine x | x `mod` 15 == 0 = "FizzBuzz"
+                              | x `mod` 3 == 0  = "Fizz"
+                              | x `mod` 5 == 0  = "Buzz"
+                              | otherwise       = show x
+               fizzBuzzList = map fizzBuzzLine [1..100]
+           in  putStrLn $ intercalate "\n" fizzBuzzList
+        
 -- Triangle
 
 nextValue :: [[Int]] -> Int
