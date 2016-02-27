@@ -27,7 +27,7 @@ qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
 -- =            { applying + }
 --      8
 
--- Exerise 2
+-- Exercise 2
 -- sum [x] = sum (x:[]) = x + sum [] = x + 0 = x
 
 -- Exercise 3
