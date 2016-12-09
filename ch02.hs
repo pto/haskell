@@ -1,3 +1,4 @@
+-- Exercise 1
 double :: Num a => a -> a
 double x = x + x
 
@@ -8,7 +9,8 @@ factorial :: (Num a, Enum a) => a -> a
 factorial n = product [1..n]
 
 average :: [Int] -> Int
-average xs = sum xs `div` length xs
+-- average :: Foldable t => t Int -> Int 
+average ns = sum ns `div` length ns
 
 a = b + c 
     where
@@ -16,28 +18,23 @@ a = b + c
         c = 2
 d = a * 2
 
-c = forty + two where { forty = 40;
-two = 2} 
-
--- This is a comment
+c = forty + two where { forty = 40; two = 2}; e = c * a
 
 {-
  e = 123 -- This is also a comment
- {- This is a nested comment -}
+ {- This is a nested comment -- but this is more comment -}
+ This would be bad syntax, if it weren't in a comment!
 -}
 
--- Exercise 1
+-- Exercise 2
 -- (2 ^ 3) * 4
 -- (2 * 3) + (4 * 5)
 -- 2 + (3 * (4 ^ 5))
 
--- Exercise 2
--- (see above)
-
 -- Exercise 3
 n = a `div` length xs
         where
-                a = 10
+                a  = 10
                 xs = [1,2,3,4,5]
 
 -- Exercise 4
@@ -47,6 +44,8 @@ myLast2 [x] = x
 myLast2 (x:xs) = myLast2 xs
 
 myLast3 xs = xs !! (length xs - 1)
+
+myLast4 xs = head (reverse xs)
 
 -- Exercise 5
 myInit1 xs = take (length xs - 1) xs

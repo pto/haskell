@@ -41,6 +41,18 @@ myProduct :: Num a => [a] -> a
 myProduct []     = 1
 myProduct (x:xs) = x * myProduct xs
 
+--      myProduct [2,3,4]
+-- =          { applying myProduct }
+--      2 * myProduct [3,4]
+-- =          { applying myProduct }
+--      2 * (3 * myProduct [4])
+-- =          { applying myProduct }
+--      2 * (3 * (4 * myProduct []))
+-- =          { applying myProduct }
+--      2 * (3 * (4 * 1))
+-- =          { applying * }
+--      24
+
 -- Exercise 4
 reverseSort :: Ord a => [a] -> [a]
 reverseSort []     = []
