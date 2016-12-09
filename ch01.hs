@@ -2,7 +2,7 @@ double :: Num a => a -> a
 double x = x + x
 
 mySum :: Num a => [a] -> a
-mySum [] = 0
+mySum []     = 0
 mySum (x:xs) = x + mySum xs
 
 qsort :: Ord a => [a] -> [a]
@@ -11,6 +11,12 @@ qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
                where
                     smaller = [ a | a <- xs, a <= x ]
                     larger  = [ b | b <- xs, b > x ]
+
+seqn :: Monad m => [m t] -> m [t]
+seqn []         = return []
+seqn (act:acts) = do x <- act
+                     xs <- seqn acts
+                     return (x:xs)
 
 -- Exercise 1
 --      double (double 2)
