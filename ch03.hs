@@ -1,5 +1,5 @@
-add :: (Int, Int) -> Int
-add (a,b) = a + b
+myAdd :: (Int, Int) -> Int
+myAdd (a,b) = a + b
 
 zeroto :: Int -> [Int]
 zeroto n = [0..n]
@@ -25,6 +25,22 @@ ex1d = ([False,True],['0','1']) :: ([Bool], [Char])
 ex1e = [tail,init,reverse] :: [[a] -> [a]]
 
 -- Exercise 2
+bools :: [Bool]
+bools = [False, True]
+
+nums :: [[Int]]
+nums = [[1,2,3], [4,5,6]]
+
+add :: Int -> Int -> Int -> Int
+add x y z = x + y + z
+
+copy :: a -> (a, a)
+copy x = (x, x)
+
+apply :: (a -> b) -> a -> b
+apply f a = f a
+
+-- Exercise 3
 second :: [a] -> a
 second xs = head (tail xs)
 
@@ -43,11 +59,13 @@ palindrome xs = reverse xs == xs
 twice :: (a -> a) -> a -> a
 twice f x = f(f x)
 
--- Exercise 3
+-- Exercise 4
 -- (see above)
 
--- Exercise 4
+-- Exercise 5
 -- You would have to evaluate both functions for all possible parameter
 -- values to show they are equal. When the possible parameters are limited
 -- (such as Bool) or when the result does not depend on every possible
--- value (such as thing x = 2), it might be feasible.
+-- value (such as thing x = 2), it might be feasible. Or, in some limited
+-- cases, you could generate an automated proof that two functions give the
+-- same results.
