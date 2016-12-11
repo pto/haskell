@@ -1,5 +1,4 @@
 -- Fizzbuzz
-
 import Data.List (intercalate)
 
 fizzBuzz :: IO ()
@@ -11,7 +10,6 @@ fizzBuzz = let fizzBuzzLine x | x `mod` 15 == 0 = "FizzBuzz"
            in  putStrLn (intercalate "\n" fizzBuzzList)
         
 -- Triangle
-
 nextValue :: [[Int]] -> Int
 nextValue xss = last (last xss) + 1
 
