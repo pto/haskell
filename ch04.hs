@@ -1,5 +1,3 @@
-import Data.List (intercalate)
-
 -- Fizzbuzz
 fizzBuzz :: IO ()
 fizzBuzz = let fizzBuzzLine x | x `mod` 15 == 0 = "FizzBuzz"
@@ -21,7 +19,7 @@ tri 1 = [[1]]
 tri n = tri (n - 1) ++ [line (nextValue (tri (n - 1))) n]
 
 triangle :: Int -> IO ()
-triangle n = let lineToString xs = intercalate " " (map show xs)
+triangle n = let lineToString xs = unwords (map show xs)
                  triToString = unlines (map lineToString (tri n))
              in putStr triToString
 
