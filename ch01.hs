@@ -1,23 +1,3 @@
-double :: Num a => a -> a
-double x = x + x
-
-mySum :: Num a => [a] -> a
-mySum []     = 0
-mySum (x:xs) = x + mySum xs
-
-qsort :: Ord a => [a] -> [a]
-qsort []     = []
-qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
-               where
-                    smaller = [ a | a <- xs, a <= x ]
-                    larger  = [ b | b <- xs, b > x ]
-
-seqn :: Monad m => [m t] -> m [t]
-seqn []         = return []
-seqn (act:acts) = do x <- act
-                     xs <- seqn acts
-                     return (x:xs)
-
 -- Exercise 1
 --      double (double 2)
 -- =            { applying the outer double }
@@ -34,21 +14,29 @@ seqn (act:acts) = do x <- act
 --      8
 
 -- Exercise 2
--- sum [x] = sum (x:[]) = x + sum [] = x + 0 = x
+--      sum [x]
+-- =            { definition of [x] }
+--      sum (x:[])
+-- =            { applying sum }
+--      x + sum []
+-- =            { applying sum }
+--      x + 0
+-- =            { applying + }
+--      x
 
 -- Exercise 3
-myProduct :: Num a => [a] -> a
-myProduct []     = 1
-myProduct (x:xs) = x * myProduct xs
+product' :: Num a => [a] -> a
+product' []     = 1
+product' (x:xs) = x * product' xs
 
---      myProduct [2,3,4]
--- =          { applying myProduct }
---      2 * myProduct [3,4]
--- =          { applying myProduct }
---      2 * (3 * myProduct [4])
--- =          { applying myProduct }
---      2 * (3 * (4 * myProduct []))
--- =          { applying myProduct }
+--      product' [2,3,4]
+-- =          { applying product' }
+--      2 * product' [3,4]
+-- =          { applying product' }
+--      2 * (3 * product' [4])
+-- =          { applying product' }
+--      2 * (3 * (4 * product' []))
+-- =          { applying product' }
 --      2 * (3 * (4 * 1))
 -- =          { applying * }
 --      24

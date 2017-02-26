@@ -1,22 +1,3 @@
-myAdd :: (Int, Int) -> Int
-myAdd (a,b) = a + b
-
-zeroto :: Int -> [Int]
-zeroto n = [0..n]
-
-add' :: Int -> (Int -> Int)
-add' x y = x + y
-
-mult :: Int -> (Int -> (Int -> Int))
-mult x y z = x * y * z
-
-myLength :: [a] -> Int
-myLength [] = 0
-myLength (x:xs) = 1 + myLength xs
-
-myEqual :: Eq a => a -> a -> Bool
-myEqual x y = x == y
-
 -- Exercises 1
 ex1a = ['a','b','c'] :: [Char]
 ex1b = ('a','b','c') :: (Char, Char, Char)
@@ -63,9 +44,11 @@ twice f x = f(f x)
 -- (see above)
 
 -- Exercise 5
--- You would have to evaluate both functions for all possible parameter
--- values to show they are equal. When the possible parameters are limited
--- (such as Bool) or when the result does not depend on every possible
--- value (such as thing x = 2), it might be feasible. Or, in some limited
--- cases, you could generate an automated proof that two functions give the
--- same results.
+-- Using the definition in the book (equal results for equal arguments) you 
+-- could evaluate both functions for all possible parameter values to see if
+-- they are equal. This would be feasible when the possible parameters are
+-- limited (such as Bool) or when the result does not depend on every possible
+-- value (such as thing x = 2), but not in the general case. In some cases,
+-- you could use textual transformations on the source to prove that two
+-- functions are effectively the same, but the absence of a transformation
+-- would not prove the functions unequal.

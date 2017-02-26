@@ -9,7 +9,6 @@ factorial :: (Num a, Enum a) => a -> a
 factorial n = product [1..n]
 
 average :: [Int] -> Int
--- average :: Foldable t => t Int -> Int 
 average ns = sum ns `div` length ns
 
 a = b + c 
@@ -18,13 +17,13 @@ a = b + c
         c = 2
 d = a * 2
 
-c = forty + two where { forty = 40; two = 2}; e = c * a
+a' = b' + c' 
+    where
+        { b' = 1;
+          c' = 2 };
+d' = a' * 2
 
-{-
- e = 123 -- This is also a comment
- {- This is a nested comment -- but this is more comment -}
- This would be bad syntax, if it weren't in a comment!
--}
+a'' = b'' + c'' where { b'' = 1; c'' = 2 }; d'' = a'' * 2 
 
 -- Exercise 2
 -- (2 ^ 3) * 4
@@ -38,19 +37,19 @@ n = a `div` length xs
                 xs = [1,2,3,4,5]
 
 -- Exercise 4
-myLast1 xs = head (drop (length xs - 1) xs)
+last' xs = head (drop (length xs - 1) xs)
 
-myLast2 [x] = x
-myLast2 (x:xs) = myLast2 xs
+last'' [x] = x
+last'' (x:xs) = last'' xs
 
-myLast3 xs = xs !! (length xs - 1)
+last''' xs = xs !! (length xs - 1)
 
-myLast4 xs = head (reverse xs)
+last'''' xs = head (reverse xs)
 
 -- Exercise 5
-myInit1 xs = take (length xs - 1) xs
+init' xs = take (length xs - 1) xs
 
-myInit2 [x] = []
-myInit2 (x:xs) = [x] ++ myInit2 xs
+init'' [x] = []
+init'' (x:xs) = [x] ++ init'' xs
 
-myInit3 xs = reverse (tail (reverse xs))
+init''' xs = reverse (tail (reverse xs))
